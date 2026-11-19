@@ -1,0 +1,37 @@
+{
+  "name": "spa-template",
+  "version": "0.0.0",
+  "description": "SPA Template Repository",
+  "homepage": "https://github.com/pwlmc/spa-template#readme",
+  "bugs": {
+    "url": "https://github.com/pwlmc/spa-template/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pwlmc/spa-template.git"
+  },
+  "license": "MIT",
+  "author": "pwlmc",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "lint": "oxlint src vite.config.ts vitest.config.ts -c .oxlintrc.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "oxlint": "^1.94.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.1"
+  }
+}
