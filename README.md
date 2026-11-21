@@ -2,6 +2,8 @@
 
 A GitHub template for bootstrapping new React projects. Choose **Use this template → Create a new repository**, then clone your new repository.
 
+[Preview the template on GitHub Pages](https://pwlmc.github.io/spa-template/)
+
 ## Tech stack
 
 - **React, TypeScript, and Vite** for the app and development server.
