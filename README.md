@@ -7,7 +7,7 @@ A GitHub template for bootstrapping new React projects. Choose **Use this templa
 - **React, TypeScript, and Vite** for the app and development server.
 - **React Router** for Home, the design system showcase, and the interactive ok-fp example.
 - **Custom design system** built with Base UI and StyleX, with shared Night Owl tokens.
-- **[OK-FP](https://pwlmc.github.io/ok-fp/)** for typed functional effects. The safe division example demonstrates `Either` and has unit tests.
+- **[OK-FP](https://pwlmc.github.io/ok-fp/)** for typed functional effects. The unit-tested safe division example uses `Either` to reject invalid inputs, division by zero, and overflow.
 - **[Morando architecture](https://morando.dev/)** for organizing code into domains and modules.
 - **Vitest and Oxlint** for tests and linting.
 
