@@ -1,6 +1,7 @@
 import * as stylex from "@stylexjs/stylex";
 import { NavLink } from "react-router";
 import { tokens } from "@/DesignSystem/Theme/tokens.stylex";
+import { repositoryUrl } from "./repository";
 
 export function AppNavigation() {
   return (
@@ -30,6 +31,9 @@ export function AppNavigation() {
       >
         Design system
       </NavLink>
+      <a href={repositoryUrl} {...stylex.props(styles.link)}>
+        GitHub
+      </a>
     </nav>
   );
 }
