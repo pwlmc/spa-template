@@ -6,7 +6,7 @@ export default mergeConfig(
   viteConfig,
   defineConfig({
     test: {
-      include: ["src/**/*.test.{ts,tsx}"],
+      include: ["src/**/*.spec.{ts,tsx}"],
       environment: "node",
     },
   }),

@@ -4,7 +4,7 @@ import { TextField } from "@/DesignSystem/TextField/TextField";
 import { TextArea } from "@/DesignSystem/TextArea/TextArea";
 
 describe.each(["input", "textarea"] as const)("%s accessibility", (tag) => {
-  it("keeps caller context alongside the description and validation error", () => {
+  it("should keep caller context alongside the description and validation error", () => {
     const props = {
       label: "Contact details",
       description: "Only visible to your team",
@@ -24,7 +24,7 @@ describe.each(["input", "textarea"] as const)("%s accessibility", (tag) => {
     expect(control).toContain(`aria-describedby="external-context ${descriptionId} ${errorId}"`);
   });
 
-  it("associates the visible label with a caller-supplied control ID", () => {
+  it("should associate the visible label with a caller-supplied control ID", () => {
     const props = { id: "contact", label: "Contact details", required: true };
     const markup = renderToStaticMarkup(
       tag === "input" ? <TextField {...props} /> : <TextArea {...props} />,

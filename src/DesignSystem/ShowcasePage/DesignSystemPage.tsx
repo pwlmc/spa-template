@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { useState, type ReactNode } from "react";
 import * as stylex from "@stylexjs/stylex";
 import { Button } from "@/DesignSystem/Button/Button";
@@ -16,6 +17,7 @@ import { Tabs } from "@/DesignSystem/Tabs/Tabs";
 import { Spinner } from "@/DesignSystem/Spinner/Spinner";
 import { VisuallyHidden } from "@/DesignSystem/VisuallyHidden/VisuallyHidden";
 import { Text } from "@/DesignSystem/Text/Text";
+import { Section } from "@/DesignSystem/Section/Section";
 import { Card } from "@/DesignSystem/Card/Card";
 import { tokens } from "@/DesignSystem/Theme/tokens.stylex";
 
@@ -36,15 +38,11 @@ export default function DesignSystemPage() {
     <div>
       <title>Design System | SPA Template</title>
 
-      <section
-        id="top"
-        aria-labelledby="showcase-title"
-        {...stylex.props(styles.hero)}
-      >
+      <Section id="top" aria-labelledby="showcase-title" sx={styles.hero}>
         <p {...stylex.props(styles.eyebrow)}>A local component collection</p>
-        <h1 id="showcase-title" {...stylex.props(styles.title)}>
+        <Text as="h1" id="showcase-title" variant="heading">
           Design system<span {...stylex.props(styles.titleDot)}>.</span>
-        </h1>
+        </Text>
         <p {...stylex.props(styles.intro)}>
           Accessible primitives. A shared visual language. Built with Base UI,
           styled with StyleX, and owned by this project.
@@ -65,19 +63,18 @@ export default function DesignSystemPage() {
           <a {...stylex.props(styles.navLink)} href="#feedback">
             Feedback
           </a>
+          <Link {...stylex.props(styles.navLink)} to="/example">
+            Try the ok-fp example
+          </Link>
         </nav>
-      </section>
+      </Section>
 
       <div {...stylex.props(styles.activity)} role="status">
         <span {...stylex.props(styles.statusDot)} aria-hidden="true" />
         <span>{action}</span>
       </div>
 
-      <section
-        id="buttons"
-        aria-labelledby="buttons-title"
-        {...stylex.props(styles.section)}
-      >
+      <Section id="buttons" aria-labelledby="buttons-title" sx={styles.section}>
         <SectionHeading
           id="buttons-title"
           number="01"
@@ -168,13 +165,9 @@ export default function DesignSystemPage() {
             import &#123; Button &#125; from "@/DesignSystem/Button/Button";
           </ImportHint>
         </div>
-      </section>
+      </Section>
 
-      <section
-        id="forms"
-        aria-labelledby="forms-title"
-        {...stylex.props(styles.section)}
-      >
+      <Section id="forms" aria-labelledby="forms-title" sx={styles.section}>
         <SectionHeading
           id="forms-title"
           number="02"
@@ -286,13 +279,9 @@ export default function DesignSystemPage() {
             </div>
           </div>
         </div>
-      </section>
+      </Section>
 
-      <section
-        id="overlays"
-        aria-labelledby="overlays-title"
-        {...stylex.props(styles.section)}
-      >
+      <Section id="overlays" aria-labelledby="overlays-title" sx={styles.section}>
         <SectionHeading
           id="overlays-title"
           number="03"
@@ -403,13 +392,9 @@ export default function DesignSystemPage() {
             )}
           </div>
         </div>
-      </section>
+      </Section>
 
-      <section
-        id="navigation"
-        aria-labelledby="navigation-title"
-        {...stylex.props(styles.section)}
-      >
+      <Section id="navigation" aria-labelledby="navigation-title" sx={styles.section}>
         <SectionHeading
           id="navigation-title"
           number="04"
@@ -477,13 +462,9 @@ export default function DesignSystemPage() {
             ]}
           />
         </div>
-      </section>
+      </Section>
 
-      <section
-        id="feedback"
-        aria-labelledby="feedback-title"
-        {...stylex.props(styles.section)}
-      >
+      <Section id="feedback" aria-labelledby="feedback-title" sx={styles.section}>
         <SectionHeading
           id="feedback-title"
           number="05"
@@ -516,13 +497,9 @@ export default function DesignSystemPage() {
             </ImportHint>
           </div>
         </div>
-      </section>
+      </Section>
 
-      <section
-        id="typography"
-        aria-labelledby="typography-title"
-        {...stylex.props(styles.section)}
-      >
+      <Section id="typography" aria-labelledby="typography-title" sx={styles.section}>
         <SectionHeading
           id="typography-title"
           number="06"
@@ -572,7 +549,7 @@ export default function DesignSystemPage() {
             </div>
           </Card>
         </div>
-      </section>
+      </Section>
     </div>
   );
 }
@@ -635,14 +612,6 @@ const styles = stylex.create({
     fontWeight: 700,
     letterSpacing: "0.16em",
     textTransform: "uppercase",
-  },
-  title: {
-    marginTop: 12,
-    marginBottom: 16,
-    fontSize: "clamp(2.6rem, 7vw, 4.6rem)",
-    fontWeight: 700,
-    lineHeight: 1.08,
-    letterSpacing: "-0.065em",
   },
   titleDot: { color: tokens.accent },
   intro: { margin: 0, maxWidth: 580, color: tokens.muted, fontSize: 16 },
