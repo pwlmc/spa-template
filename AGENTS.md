@@ -2,7 +2,9 @@
 
 Read and apply the [Morando skill](.agents/skills/morando/SKILL.md) when adding, moving, or reviewing code.
 
-The source root is `src/`. The layer order is `defs → ops → ui → main`. Components, pages, StyleX tokens, and UI tests belong to `ui`; app routing and startup belong to `main`.
+Source root: `src/`. Import alias: `@/`.
+
+Use the Morando React layer order: `defs`, `ops`, `hooks`, `components`, `pages`, `main` (lowest to highest). App routing and startup belong to `main`. `DesignSystem` is a platform domain.
 
 ## Operations
 
@@ -10,7 +12,7 @@ Write operations (`ops`) logic in a functional style. Keep transformations pure 
 
 # Imports
 
-The source root alias is `@/`. Do not create or use re-export-only modules.
+Do not create or use re-export-only modules.
 
 # Tests
 
