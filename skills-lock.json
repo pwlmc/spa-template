@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "skills": {
+    "morando": {
+      "source": "pwlmc/morando",
+      "commit": "6dd1cf9a9ef1b9e30df10770817fc149a778d146",
+      "sourceType": "github",
+      "skillPath": "skills/morando/SKILL.md",
+      "computedHash": "d95305dce5c7029692a65b1536503866598c425f409b45158c2cc1c87eb68020"
+    }
+  }
+}
