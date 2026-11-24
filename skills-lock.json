@@ -3,10 +3,10 @@
   "skills": {
     "morando": {
       "source": "pwlmc/morando",
-      "commit": "1c17849d8aa3188fc6018dcfb883c9c947e05480",
+      "commit": "9ab8bcf68b03fd5a1b98c3d18023d0b3602cb22f",
       "sourceType": "github",
       "skillPath": "skills/morando/SKILL.md",
-      "computedHash": "ad093cd968a941ae6e2d91e18acc22014a68a8498a9df2666218b179413c9c1f"
+      "computedHash": "1e6563e787e189aa404972451c30d69837f929b6fce94fca7562939926ab500a"
     }
   }
 }
