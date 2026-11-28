@@ -9,25 +9,19 @@ export function AppNavigation() {
       <NavLink
         to="/"
         end
-        className={({ isActive }) =>
-          stylex.props(styles.link, isActive && styles.active).className
-        }
+        className={({ isActive }) => stylex.props(styles.link, isActive && styles.active).className}
       >
         Home
       </NavLink>
       <NavLink
         to="/example"
-        className={({ isActive }) =>
-          stylex.props(styles.link, isActive && styles.active).className
-        }
+        className={({ isActive }) => stylex.props(styles.link, isActive && styles.active).className}
       >
         Example page
       </NavLink>
       <NavLink
         to="/design-system"
-        className={({ isActive }) =>
-          stylex.props(styles.link, isActive && styles.active).className
-        }
+        className={({ isActive }) => stylex.props(styles.link, isActive && styles.active).className}
       >
         Design system
       </NavLink>

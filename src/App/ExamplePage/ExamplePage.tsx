@@ -19,8 +19,8 @@ export function ExamplePage() {
           Safe division with ok-fp
         </Text>
         <Text tone="muted">
-          The helper uses Either to return a number or the first error. Try a
-          zero divisor or clear an input to see the error branch.
+          The helper uses Either to return a number or the first error. Try a zero divisor or clear
+          an input to see the error branch.
         </Text>
         <Card {...stylex.props(styles.calculator)}>
           <TextField

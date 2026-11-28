@@ -5,7 +5,13 @@ export type VisuallyHiddenProps = ComponentPropsWithRef<"span">;
 
 export function VisuallyHidden({ className, ...props }: VisuallyHiddenProps) {
   const sx = stylex.props(styles.hidden);
-  return <span {...props} {...sx} className={className ? `${sx.className} ${className}` : sx.className} />;
+  return (
+    <span
+      {...props}
+      {...sx}
+      className={className ? `${sx.className} ${className}` : sx.className}
+    />
+  );
 }
 
 const styles = stylex.create({

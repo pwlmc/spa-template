@@ -1,16 +1,22 @@
 import * as stylex from "@stylexjs/stylex";
 import { Link } from "react-router";
 import { tokens } from "@/DesignSystem/Theme/tokens.stylex";
+import { ThemeSwitcher } from "@/DesignSystem/Theme/ThemeSwitcher";
 import { AppNavigation } from "./AppNavigation";
 
 export function AppHeader() {
   return (
     <header {...stylex.props(styles.header)}>
       <Link to="/" {...stylex.props(styles.brand)}>
-        <span {...stylex.props(styles.mark)} aria-hidden="true">sp.</span>
+        <span {...stylex.props(styles.mark)} aria-hidden="true">
+          sp.
+        </span>
         SPA Template
       </Link>
-      <AppNavigation />
+      <div {...stylex.props(styles.controls)}>
+        <AppNavigation />
+        <ThemeSwitcher />
+      </div>
     </header>
   );
 }
@@ -26,6 +32,12 @@ const styles = stylex.create({
     borderBottomWidth: 1,
     borderBottomStyle: "solid",
     borderBottomColor: tokens.border,
+  },
+  controls: {
+    display: "flex",
+    alignItems: "center",
+    flexWrap: "wrap",
+    gap: 12,
   },
   brand: {
     display: "inline-flex",

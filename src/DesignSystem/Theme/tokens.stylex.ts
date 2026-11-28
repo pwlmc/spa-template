@@ -14,6 +14,8 @@ export const tokens = stylex.defineVars({
   danger: "#ff5874",
   dangerSurface: "#2c2034",
   dangerSurfaceHover: "#40283f",
+  success: "#86efac",
+  successSurface: "#103725",
   focus: "#c792ea",
   radius: "10px",
   shadow: "0 18px 60px rgba(0, 0, 0, 0.38)",

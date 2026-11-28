@@ -16,7 +16,18 @@ export interface CheckboxProps {
   required?: boolean;
 }
 
-export function Checkbox({ label, description, checked, defaultChecked, onCheckedChange, disabled, indeterminate, name, value, required }: CheckboxProps) {
+export function Checkbox({
+  label,
+  description,
+  checked,
+  defaultChecked,
+  onCheckedChange,
+  disabled,
+  indeterminate,
+  name,
+  value,
+  required,
+}: CheckboxProps) {
   const id = useId();
   const labelId = `${id}-label`;
   const descriptionId = `${id}-description`;
@@ -35,25 +46,51 @@ export function Checkbox({ label, description, checked, defaultChecked, onChecke
         required={required}
         aria-labelledby={labelId}
         aria-describedby={description ? descriptionId : undefined}
-        className={(state) => stylex.props(styles.control, (state.checked || state.indeterminate) && styles.checked, state.disabled && styles.disabledControl).className}
+        className={(state) =>
+          stylex.props(
+            styles.control,
+            (state.checked || state.indeterminate) && styles.checked,
+            state.disabled && styles.disabledControl,
+          ).className
+        }
       >
         <BaseCheckbox.Indicator aria-hidden="true" {...stylex.props(styles.indicator)}>
           {indeterminate ? "−" : "✓"}
         </BaseCheckbox.Indicator>
       </BaseCheckbox.Root>
       <span {...stylex.props(styles.copy)}>
-        <span id={labelId} {...stylex.props(styles.title)}>{label}</span>
-        {description && <span id={descriptionId} {...stylex.props(styles.description)}>{description}</span>}
+        <span id={labelId} {...stylex.props(styles.title)}>
+          {label}
+        </span>
+        {description && (
+          <span id={descriptionId} {...stylex.props(styles.description)}>
+            {description}
+          </span>
+        )}
       </span>
     </label>
   );
 }
 
 const styles = stylex.create({
-  label: { display: "flex", alignItems: "center", gap: 10, minHeight: 40, width: "fit-content", maxWidth: "100%", cursor: "pointer" },
+  label: {
+    display: "flex",
+    alignItems: "center",
+    gap: 10,
+    minHeight: 40,
+    width: "fit-content",
+    maxWidth: "100%",
+    cursor: "pointer",
+  },
   disabled: { opacity: 0.55, cursor: "not-allowed" },
   copy: { display: "flex", flexDirection: "column", gap: 3, minWidth: 0 },
-  title: { color: tokens.text, fontSize: 14, fontWeight: 500, lineHeight: 1.5, overflowWrap: "anywhere" },
+  title: {
+    color: tokens.text,
+    fontSize: 14,
+    fontWeight: 500,
+    lineHeight: 1.5,
+    overflowWrap: "anywhere",
+  },
   description: { color: tokens.muted, fontSize: 13, lineHeight: 1.5, overflowWrap: "anywhere" },
   control: {
     boxSizing: "border-box",
@@ -77,5 +114,12 @@ const styles = stylex.create({
   },
   checked: { backgroundColor: tokens.accent, borderColor: tokens.accent },
   disabledControl: { cursor: "not-allowed" },
-  indicator: { display: "flex", alignItems: "center", justifyContent: "center", fontSize: 17, fontWeight: 800, lineHeight: 1 },
+  indicator: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: 17,
+    fontWeight: 800,
+    lineHeight: 1,
+  },
 });

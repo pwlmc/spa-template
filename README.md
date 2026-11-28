@@ -8,10 +8,10 @@ A GitHub template for bootstrapping new React projects. Choose **Use this templa
 
 - **React, TypeScript, and Vite** for the app and development server.
 - **React Router** for Home, the design system showcase, and the interactive ok-fp example.
-- **Custom design system** built with Base UI and StyleX, with shared Night Owl tokens.
+- **Custom design system** built with Base UI and StyleX, with shared Night Owl tokens, a light theme, and a persisted theme switcher.
 - **[OK-FP](https://pwlmc.github.io/ok-fp/)** for typed functional effects. The unit-tested safe division example uses `Either` to reject invalid inputs, division by zero, and overflow.
 - **[Morando architecture](https://morando.dev/)** for organizing code into domains and modules.
-- **Vitest and Oxlint** for tests and linting.
+- **Vitest (jsdom for DOM specs) and Oxlint** for tests and linting.
 
 ## Getting started
 
@@ -22,7 +22,7 @@ npm ci
 npm run dev
 ```
 
-Run `npm run lint`, `npm test`, or `npm run build` locally. GitHub Actions runs lint and tests as separate jobs on pushes and pull requests.
+Run `npm run format` to format code. Run `npm run lint`, `npm run format:check`, `npm test`, or `npm run build` locally. GitHub Actions runs lint and tests as separate jobs on pushes and pull requests.
 
 ## GitHub Pages
 

@@ -15,7 +15,17 @@ export interface SwitchProps {
   required?: boolean;
 }
 
-export function Switch({ label, description, checked, defaultChecked, onCheckedChange, disabled, name, value, required }: SwitchProps) {
+export function Switch({
+  label,
+  description,
+  checked,
+  defaultChecked,
+  onCheckedChange,
+  disabled,
+  name,
+  value,
+  required,
+}: SwitchProps) {
   const id = useId();
   const labelId = `${id}-label`;
   const descriptionId = `${id}-description`;
@@ -33,25 +43,53 @@ export function Switch({ label, description, checked, defaultChecked, onCheckedC
         required={required}
         aria-labelledby={labelId}
         aria-describedby={description ? descriptionId : undefined}
-        className={(state) => stylex.props(styles.control, state.checked && styles.checked, state.disabled && styles.disabledControl).className}
+        className={(state) =>
+          stylex.props(
+            styles.control,
+            state.checked && styles.checked,
+            state.disabled && styles.disabledControl,
+          ).className
+        }
       >
         <BaseSwitch.Thumb
-          className={(state) => stylex.props(styles.thumb, state.checked && styles.thumbChecked).className}
+          className={(state) =>
+            stylex.props(styles.thumb, state.checked && styles.thumbChecked).className
+          }
         />
       </BaseSwitch.Root>
       <span {...stylex.props(styles.copy)}>
-        <span id={labelId} {...stylex.props(styles.title)}>{label}</span>
-        {description && <span id={descriptionId} {...stylex.props(styles.description)}>{description}</span>}
+        <span id={labelId} {...stylex.props(styles.title)}>
+          {label}
+        </span>
+        {description && (
+          <span id={descriptionId} {...stylex.props(styles.description)}>
+            {description}
+          </span>
+        )}
       </span>
     </label>
   );
 }
 
 const styles = stylex.create({
-  label: { display: "flex", alignItems: "center", gap: 10, minHeight: 40, width: "fit-content", maxWidth: "100%", cursor: "pointer" },
+  label: {
+    display: "flex",
+    alignItems: "center",
+    gap: 10,
+    minHeight: 40,
+    width: "fit-content",
+    maxWidth: "100%",
+    cursor: "pointer",
+  },
   disabled: { opacity: 0.55, cursor: "not-allowed" },
   copy: { display: "flex", flexDirection: "column", gap: 3, minWidth: 0 },
-  title: { color: tokens.text, fontSize: 14, fontWeight: 500, lineHeight: 1.5, overflowWrap: "anywhere" },
+  title: {
+    color: tokens.text,
+    fontSize: 14,
+    fontWeight: 500,
+    lineHeight: 1.5,
+    overflowWrap: "anywhere",
+  },
   description: { color: tokens.muted, fontSize: 13, lineHeight: 1.5, overflowWrap: "anywhere" },
   control: {
     boxSizing: "border-box",
@@ -74,6 +112,13 @@ const styles = stylex.create({
   },
   checked: { backgroundColor: tokens.accent, borderColor: tokens.accent },
   disabledControl: { cursor: "not-allowed" },
-  thumb: { display: "block", width: 18, height: 18, borderRadius: "50%", backgroundColor: tokens.muted, transform: "translateX(0)" },
+  thumb: {
+    display: "block",
+    width: 18,
+    height: 18,
+    borderRadius: "50%",
+    backgroundColor: tokens.muted,
+    transform: "translateX(0)",
+  },
   thumbChecked: { backgroundColor: tokens.onAccent, transform: "translateX(18px)" },
 });

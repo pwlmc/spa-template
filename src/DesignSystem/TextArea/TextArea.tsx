@@ -8,39 +8,64 @@ export type TextAreaProps = ComponentPropsWithRef<"textarea"> & {
   error?: string;
 };
 
-export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
-  function TextArea(
-    { label, description, error, id, rows = 4, disabled, className, "aria-describedby": describedBy, "aria-invalid": invalid, ...props },
-    ref,
-  ) {
-    const generatedId = useId();
-    const inputId = id ?? `${generatedId}-input`;
-    const labelId = `${generatedId}-label`;
-    const descriptionId = `${generatedId}-description`;
-    const errorId = `${generatedId}-error`;
-    const descriptions = [describedBy, description ? descriptionId : undefined, error ? errorId : undefined].filter(Boolean).join(" ");
-    const controlStyles = stylex.props(styles.input, !!error && styles.invalid);
-
-    return (
-      <div {...stylex.props(styles.field, disabled && styles.disabled)}>
-        <label id={labelId} htmlFor={inputId} {...stylex.props(styles.label)}>{label}</label>
-        {description && <p id={descriptionId} {...stylex.props(styles.description)}>{description}</p>}
-        <textarea
-          {...props}
-          {...controlStyles}
-          className={[controlStyles.className, className].filter(Boolean).join(" ")}
-          ref={ref}
-          id={inputId}
-          rows={rows}
-          disabled={disabled}
-          aria-invalid={error ? true : invalid}
-          aria-describedby={descriptions || undefined}
-        />
-        {error && <p id={errorId} {...stylex.props(styles.error)}>{error}</p>}
-      </div>
-    );
+export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function TextArea(
+  {
+    label,
+    description,
+    error,
+    id,
+    rows = 4,
+    disabled,
+    className,
+    "aria-describedby": describedBy,
+    "aria-invalid": invalid,
+    ...props
   },
-);
+  ref,
+) {
+  const generatedId = useId();
+  const inputId = id ?? `${generatedId}-input`;
+  const labelId = `${generatedId}-label`;
+  const descriptionId = `${generatedId}-description`;
+  const errorId = `${generatedId}-error`;
+  const descriptions = [
+    describedBy,
+    description ? descriptionId : undefined,
+    error ? errorId : undefined,
+  ]
+    .filter(Boolean)
+    .join(" ");
+  const controlStyles = stylex.props(styles.input, !!error && styles.invalid);
+
+  return (
+    <div {...stylex.props(styles.field, disabled && styles.disabled)}>
+      <label id={labelId} htmlFor={inputId} {...stylex.props(styles.label)}>
+        {label}
+      </label>
+      {description && (
+        <p id={descriptionId} {...stylex.props(styles.description)}>
+          {description}
+        </p>
+      )}
+      <textarea
+        {...props}
+        {...controlStyles}
+        className={[controlStyles.className, className].filter(Boolean).join(" ")}
+        ref={ref}
+        id={inputId}
+        rows={rows}
+        disabled={disabled}
+        aria-invalid={error ? true : invalid}
+        aria-describedby={descriptions || undefined}
+      />
+      {error && (
+        <p id={errorId} {...stylex.props(styles.error)}>
+          {error}
+        </p>
+      )}
+    </div>
+  );
+});
 
 const styles = stylex.create({
   field: { display: "flex", flexDirection: "column", gap: 8, width: "100%", minWidth: 0 },

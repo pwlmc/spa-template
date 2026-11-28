@@ -19,8 +19,7 @@ export const stack: StackItem[] = [
   },
   {
     name: "Base UI & StyleX",
-    description:
-      "Headless interaction primitives styled with shared Night Owl tokens.",
+    description: "Headless interaction primitives styled with shared Night Owl tokens.",
   },
   {
     name: "Custom design system",

@@ -19,7 +19,9 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "oxlint src vite.config.ts vitest.config.ts -c .oxlintrc.json",
-    "test": "vitest run"
+    "test": "vitest run",
+    "format": "oxfmt src index.html vite.config.ts vitest.config.ts",
+    "format:check": "oxfmt --check src index.html vite.config.ts vitest.config.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
@@ -34,6 +36,8 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.3.0",
+    "jsdom": "^29.1.1",
+    "oxfmt": "^0.80.0",
     "oxlint": "^1.94.0",
     "typescript": "^7.0.2",
     "vite": "^8.3.8",

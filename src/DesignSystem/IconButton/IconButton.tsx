@@ -16,7 +16,11 @@ export function IconButton({ children, xstyle, loading, size = "md", ...props }:
       loading={loading}
       xstyle={[styles.icon, sizes[size], xstyle]}
     >
-      {!loading && <span {...stylex.props(styles.content)} aria-hidden="true">{children}</span>}
+      {!loading && (
+        <span {...stylex.props(styles.content)} aria-hidden="true">
+          {children}
+        </span>
+      )}
     </Button>
   );
 }

@@ -18,13 +18,12 @@ import { Spinner } from "@/DesignSystem/Spinner/Spinner";
 import { VisuallyHidden } from "@/DesignSystem/VisuallyHidden/VisuallyHidden";
 import { Text } from "@/DesignSystem/Text/Text";
 import { Section } from "@/DesignSystem/Section/Section";
+import { FeedbackBanner } from "@/DesignSystem/FeedbackBanner/FeedbackBanner";
 import { Card } from "@/DesignSystem/Card/Card";
 import { tokens } from "@/DesignSystem/Theme/tokens.stylex";
 
 export default function DesignSystemPage() {
-  const [action, setAction] = useState(
-    "Interact with a component to see its state here.",
-  );
+  const [action, setAction] = useState("Interact with a component to see its state here.");
   const [favorite, setFavorite] = useState(false);
   const [updates, setUpdates] = useState(true);
   const [focusMode, setFocusMode] = useState(false);
@@ -44,8 +43,8 @@ export default function DesignSystemPage() {
           Design system<span {...stylex.props(styles.titleDot)}>.</span>
         </Text>
         <p {...stylex.props(styles.intro)}>
-          Accessible primitives. A shared visual language. Built with Base UI,
-          styled with StyleX, and owned by this project.
+          Accessible primitives. A shared visual language. Built with Base UI, styled with StyleX,
+          and owned by this project.
         </p>
         <nav aria-label="Component categories" {...stylex.props(styles.nav)}>
           <a {...stylex.props(styles.navLink)} href="#buttons">
@@ -85,27 +84,17 @@ export default function DesignSystemPage() {
           <div {...stylex.props(styles.example)}>
             <p {...stylex.props(styles.caption)}>Variants</p>
             <div {...stylex.props(styles.row)}>
-              <Button onClick={() => setAction("Primary action activated.")}>
-                Primary
-              </Button>
-              <Button
-                variant="secondary"
-                onClick={() => setAction("Secondary action activated.")}
-              >
+              <Button onClick={() => setAction("Primary action activated.")}>Primary</Button>
+              <Button variant="secondary" onClick={() => setAction("Secondary action activated.")}>
                 Secondary
               </Button>
-              <Button
-                variant="ghost"
-                onClick={() => setAction("Ghost action activated.")}
-              >
+              <Button variant="ghost" onClick={() => setAction("Ghost action activated.")}>
                 Ghost
               </Button>
               <Button
                 variant="danger"
                 onClick={() =>
-                  setAction(
-                    "Danger action activated. This is a preview; nothing was deleted.",
-                  )
+                  setAction("Danger action activated. This is a preview; nothing was deleted.")
                 }
               >
                 Danger
@@ -122,10 +111,7 @@ export default function DesignSystemPage() {
               >
                 Small
               </Button>
-              <Button
-                variant="secondary"
-                onClick={() => setAction("Medium button activated.")}
-              >
+              <Button variant="secondary" onClick={() => setAction("Medium button activated.")}>
                 Medium
               </Button>
               <Button
@@ -137,23 +123,13 @@ export default function DesignSystemPage() {
               </Button>
               <Button disabled>Disabled</Button>
               <Button loading>Loading</Button>
-              <Tooltip
-                content={
-                  favorite
-                    ? "Remove from your favorites"
-                    : "Add to your favorites"
-                }
-              >
+              <Tooltip content={favorite ? "Remove from your favorites" : "Add to your favorites"}>
                 <IconButton
-                  aria-label={
-                    favorite ? "Remove from favorites" : "Add to favorites"
-                  }
+                  aria-label={favorite ? "Remove from favorites" : "Add to favorites"}
                   aria-pressed={favorite}
                   onClick={() => {
                     setFavorite(!favorite);
-                    setAction(
-                      favorite ? "Favorite removed." : "Favorite added.",
-                    );
+                    setAction(favorite ? "Favorite removed." : "Favorite added.");
                   }}
                 >
                   <Star filled={favorite} />
@@ -161,9 +137,7 @@ export default function DesignSystemPage() {
               </Tooltip>
             </div>
           </div>
-          <ImportHint>
-            import &#123; Button &#125; from "@/DesignSystem/Button/Button";
-          </ImportHint>
+          <ImportHint>import &#123; Button &#125; from "@/DesignSystem/Button/Button";</ImportHint>
         </div>
       </Section>
 
@@ -182,9 +156,7 @@ export default function DesignSystemPage() {
               onSubmit={(event) => {
                 event.preventDefault();
                 const data = new FormData(event.currentTarget);
-                setAction(
-                  `Profile preview updated for ${data.get("displayName")}.`,
-                );
+                setAction(`Profile preview updated for ${data.get("displayName")}.`);
               }}
             >
               <TextField
@@ -246,11 +218,7 @@ export default function DesignSystemPage() {
                 onCheckedChange={setUpdates}
               />
               <Checkbox label="Partially selected" indeterminate />
-              <Checkbox
-                label="Managed by your organization"
-                disabled
-                defaultChecked
-              />
+              <Checkbox label="Managed by your organization" disabled defaultChecked />
               <Switch
                 label="Focus mode"
                 description="Reduce distractions while you work."
@@ -292,8 +260,7 @@ export default function DesignSystemPage() {
           <div {...stylex.props(styles.panel)}>
             <h3 {...stylex.props(styles.cardTitle)}>Dialog</h3>
             <p {...stylex.props(styles.body)}>
-              A focused space for a task. Escape closes it and returns focus to
-              the trigger.
+              A focused space for a task. Escape closes it and returns focus to the trigger.
             </p>
             <Dialog
               trigger={<Button variant="secondary">Edit project</Button>}
@@ -324,16 +291,13 @@ export default function DesignSystemPage() {
                 <Button type="submit">Save changes</Button>
               </form>
             </Dialog>
-            <p {...stylex.props(styles.statePreview)}>
-              Current project: {projectName}
-            </p>
+            <p {...stylex.props(styles.statePreview)}>Current project: {projectName}</p>
           </div>
 
           <div {...stylex.props(styles.panel)}>
             <h3 {...stylex.props(styles.cardTitle)}>Menu, popover & tooltip</h3>
             <p {...stylex.props(styles.body)}>
-              Actions, contextual settings, and short hints. Try the keyboard,
-              too.
+              Actions, contextual settings, and short hints. Try the keyboard, too.
             </p>
             <div {...stylex.props(styles.row)}>
               <Menu
@@ -364,9 +328,7 @@ export default function DesignSystemPage() {
                     label: "Delete",
                     destructive: true,
                     onSelect: () =>
-                      setAction(
-                        "Menu selection: Delete. This preview does not delete data.",
-                      ),
+                      setAction("Menu selection: Delete. This preview does not delete data."),
                   },
                 ]}
               />
@@ -375,11 +337,7 @@ export default function DesignSystemPage() {
                 title="Quick preferences"
                 description="Settings in this showcase live only in this tab."
               >
-                <Checkbox
-                  label="Show keyboard hints"
-                  checked={hints}
-                  onCheckedChange={setHints}
-                />
+                <Checkbox label="Show keyboard hints" checked={hints} onCheckedChange={setHints} />
               </Popover>
               <Tooltip content="Tooltips work on hover and keyboard focus.">
                 <Button variant="ghost">Hover or focus me</Button>
@@ -410,13 +368,10 @@ export default function DesignSystemPage() {
                 label: "Overview",
                 content: (
                   <div>
-                    <h3 {...stylex.props(styles.cardTitle)}>
-                      A foundation, not a framework
-                    </h3>
+                    <h3 {...stylex.props(styles.cardTitle)}>A foundation, not a framework</h3>
                     <p {...stylex.props(styles.body)}>
-                      Import components from src/DesignSystem. Base UI handles
-                      behavior; our components own appearance and the public
-                      API.
+                      Import components from src/DesignSystem. Base UI handles behavior; our
+                      components own appearance and the public API.
                     </p>
                   </div>
                 ),
@@ -426,13 +381,11 @@ export default function DesignSystemPage() {
                 label: "Styling",
                 content: (
                   <div>
-                    <h3 {...stylex.props(styles.cardTitle)}>
-                      One set of shared tokens
-                    </h3>
+                    <h3 {...stylex.props(styles.cardTitle)}>One set of shared tokens</h3>
                     <p {...stylex.props(styles.body)}>
                       Colors, surfaces, focus rings, and radii live in
-                      DesignSystem/Theme/tokens.stylex.ts. Change them once to
-                      update the collection.
+                      DesignSystem/Theme/tokens.stylex.ts. Change them once to update the
+                      collection.
                     </p>
                   </div>
                 ),
@@ -442,13 +395,11 @@ export default function DesignSystemPage() {
                 label: "Accessibility",
                 content: (
                   <div>
-                    <h3 {...stylex.props(styles.cardTitle)}>
-                      Built for more than a mouse
-                    </h3>
+                    <h3 {...stylex.props(styles.cardTitle)}>Built for more than a mouse</h3>
                     <p {...stylex.props(styles.body)}>
-                      Visible focus, labeled controls, and managed overlays are
-                      part of the components. Application content still needs
-                      meaningful labels and accessible copy.
+                      Visible focus, labeled controls, and managed overlays are part of the
+                      components. Application content still needs meaningful labels and accessible
+                      copy.
                     </p>
                   </div>
                 ),
@@ -477,10 +428,18 @@ export default function DesignSystemPage() {
             <div {...stylex.props(styles.row)}>
               <Spinner label="Loading example" />
               <Spinner size="sm" label="Loading compact example" />
-              <span {...stylex.props(styles.body)}>
-                Two sizes. Respects reduced motion.
-              </span>
+              <span {...stylex.props(styles.body)}>Two sizes. Respects reduced motion.</span>
             </div>
+          </div>
+          <div {...stylex.props(styles.panel)}>
+            <h3 {...stylex.props(styles.cardTitle)}>FeedbackBanner</h3>
+            <div {...stylex.props(styles.stack)}>
+              <FeedbackBanner tone="success">Changes saved.</FeedbackBanner>
+              <FeedbackBanner tone="error">Something went wrong. Try again.</FeedbackBanner>
+            </div>
+            <ImportHint>
+              &lt;FeedbackBanner tone="success"&gt;Saved&lt;/FeedbackBanner&gt;
+            </ImportHint>
           </div>
           <div {...stylex.props(styles.panel)}>
             <h3 {...stylex.props(styles.cardTitle)}>VisuallyHidden</h3>
@@ -488,13 +447,10 @@ export default function DesignSystemPage() {
               This sentence includes extra screen-reader context.
               <VisuallyHidden>
                 {" "}
-                This additional text is available to assistive technology
-                without being visible.
+                This additional text is available to assistive technology without being visible.
               </VisuallyHidden>
             </p>
-            <ImportHint>
-              &lt;VisuallyHidden&gt;Extra context&lt;/VisuallyHidden&gt;
-            </ImportHint>
+            <ImportHint>&lt;VisuallyHidden&gt;Extra context&lt;/VisuallyHidden&gt;</ImportHint>
           </div>
         </div>
       </Section>
@@ -523,12 +479,7 @@ export default function DesignSystemPage() {
               <Text tone="danger">Something needs your attention.</Text>
             </div>
           </Card>
-          <Card
-            as="article"
-            variant="raised"
-            padding="lg"
-            aria-labelledby="card-example-title"
-          >
+          <Card as="article" variant="raised" padding="lg" aria-labelledby="card-example-title">
             <div {...stylex.props(styles.stack)}>
               <Text variant="caption" tone="muted">
                 Raised card
@@ -537,12 +488,10 @@ export default function DesignSystemPage() {
                 Workspace settings
               </Text>
               <Text tone="muted">
-                A shared surface, border, radius, and padding. Compose ordinary
-                children without extra layout components.
+                A shared surface, border, radius, and padding. Compose ordinary children without
+                extra layout components.
               </Text>
-              <Button onClick={() => setAction("Card action activated.")}>
-                Try card action
-              </Button>
+              <Button onClick={() => setAction("Card action activated.")}>Try card action</Button>
               <Text variant="small" tone="muted">
                 Card padding: none, sm, md, or lg.
               </Text>

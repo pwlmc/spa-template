@@ -11,7 +11,9 @@ describe("divideInputs", () => {
     ["3", "-2", -1.5],
     ["0", "2", 0],
   ])("should divide %j by %j", (dividend, divisor, expected) => {
-    expect(divideInputs(dividend, divisor).match(unexpectedBranch, (value) => value)).toBe(expected);
+    expect(divideInputs(dividend, divisor).match(unexpectedBranch, (value) => value)).toBe(
+      expected,
+    );
   });
 
   it.each([
@@ -23,6 +25,8 @@ describe("divideInputs", () => {
     ["7", "-0", "Cannot divide by zero."],
     ["1e308", "1e-308", "The quotient is outside the finite number range."],
   ])("should reject %j divided by %j", (dividend, divisor, expected) => {
-    expect(divideInputs(dividend, divisor).match((error) => error, unexpectedBranch)).toBe(expected);
+    expect(divideInputs(dividend, divisor).match((error) => error, unexpectedBranch)).toBe(
+      expected,
+    );
   });
 });

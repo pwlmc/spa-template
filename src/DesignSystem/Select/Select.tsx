@@ -3,11 +3,10 @@ import * as stylex from "@stylexjs/stylex";
 import { useId, type ComponentPropsWithRef } from "react";
 import { tokens } from "@/DesignSystem/Theme/tokens.stylex";
 
-export interface SelectProps
-  extends Omit<
-    ComponentPropsWithRef<"button">,
-    "children" | "value" | "defaultValue" | "onChange" | "disabled" | "name" | "type"
-  > {
+export interface SelectProps extends Omit<
+  ComponentPropsWithRef<"button">,
+  "children" | "value" | "defaultValue" | "onChange" | "disabled" | "name" | "type"
+> {
   label: string;
   description?: string;
   error?: string;
@@ -46,9 +45,9 @@ export function Select({
   const labelId = `${triggerId}-label`;
   const descriptionId = `${triggerId}-description`;
   const errorId = `${triggerId}-error`;
-  const helpIds = [describedBy, description && descriptionId, error && errorId]
-    .filter(Boolean)
-    .join(" ") || undefined;
+  const helpIds =
+    [describedBy, description && descriptionId, error && errorId].filter(Boolean).join(" ") ||
+    undefined;
 
   return (
     <div {...stylex.props(styles.field)}>
@@ -86,11 +85,15 @@ export function Select({
                 disabled && styles.disabled,
               ).className,
               className,
-            ].filter(Boolean).join(" ")
+            ]
+              .filter(Boolean)
+              .join(" ")
           }
         >
           <BaseSelect.Value placeholder={placeholder} {...stylex.props(styles.value)} />
-          <BaseSelect.Icon {...stylex.props(styles.icon)} aria-hidden="true">⌄</BaseSelect.Icon>
+          <BaseSelect.Icon {...stylex.props(styles.icon)} aria-hidden="true">
+            ⌄
+          </BaseSelect.Icon>
         </BaseSelect.Trigger>
         <BaseSelect.Portal>
           <BaseSelect.Positioner
@@ -108,12 +111,14 @@ export function Select({
                     value={option.value}
                     label={option.label}
                     disabled={option.disabled}
-                    className={(state) => stylex.props(
-                      styles.item,
-                      state.selected && styles.selected,
-                      state.highlighted && styles.highlighted,
-                      state.disabled && styles.disabled,
-                    ).className}
+                    className={(state) =>
+                      stylex.props(
+                        styles.item,
+                        state.selected && styles.selected,
+                        state.highlighted && styles.highlighted,
+                        state.disabled && styles.disabled,
+                      ).className
+                    }
                   >
                     <BaseSelect.ItemText {...stylex.props(styles.itemText)}>
                       {option.label}
@@ -126,8 +131,16 @@ export function Select({
           </BaseSelect.Positioner>
         </BaseSelect.Portal>
       </BaseSelect.Root>
-      {description && <p id={descriptionId} {...stylex.props(styles.help)}>{description}</p>}
-      {error && <p id={errorId} role="alert" {...stylex.props(styles.help, styles.error)}>{error}</p>}
+      {description && (
+        <p id={descriptionId} {...stylex.props(styles.help)}>
+          {description}
+        </p>
+      )}
+      {error && (
+        <p id={errorId} role="alert" {...stylex.props(styles.help, styles.error)}>
+          {error}
+        </p>
+      )}
     </div>
   );
 }

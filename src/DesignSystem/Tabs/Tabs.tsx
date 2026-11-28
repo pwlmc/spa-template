@@ -3,8 +3,10 @@ import * as stylex from "@stylexjs/stylex";
 import { type ComponentPropsWithRef, type ReactNode } from "react";
 import { tokens } from "@/DesignSystem/Theme/tokens.stylex";
 
-export interface TabsProps
-  extends Omit<ComponentPropsWithRef<"div">, "children" | "defaultValue" | "onChange"> {
+export interface TabsProps extends Omit<
+  ComponentPropsWithRef<"div">,
+  "children" | "defaultValue" | "onChange"
+> {
   label: string;
   items: readonly {
     value: string;
@@ -46,11 +48,13 @@ export function Tabs({
             value={item.value}
             disabled={item.disabled}
             type="button"
-            className={(state) => stylex.props(
-              styles.tab,
-              state.active && styles.active,
-              state.disabled && styles.disabled,
-            ).className}
+            className={(state) =>
+              stylex.props(
+                styles.tab,
+                state.active && styles.active,
+                state.disabled && styles.disabled,
+              ).className
+            }
           >
             {item.label}
           </BaseTabs.Tab>

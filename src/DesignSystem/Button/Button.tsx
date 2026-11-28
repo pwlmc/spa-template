@@ -22,7 +22,13 @@ export function Button({
   xstyle,
   ...props
 }: ButtonProps) {
-  const sx = stylex.props(styles.button, variants[variant], sizes[size], (disabled || loading) && styles.disabled, xstyle);
+  const sx = stylex.props(
+    styles.button,
+    variants[variant],
+    sizes[size],
+    (disabled || loading) && styles.disabled,
+    xstyle,
+  );
   return (
     <BaseButton
       {...props}

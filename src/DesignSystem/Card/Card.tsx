@@ -11,19 +11,34 @@ export type CardProps<E extends CardElement = "div"> = {
 
 /** A noninteractive surface; put links and buttons inside rather than on the card. */
 export function Card<E extends CardElement = "div">({
-  as, variant = "default", padding = "md", className, children, ...props
+  as,
+  variant = "default",
+  padding = "md",
+  className,
+  children,
+  ...props
 }: CardProps<E>) {
   const sx = stylex.props(styles.base, variant === "raised" && styles.raised, paddings[padding]);
-  return createElement(as ?? "div", {
-    ...props, ...sx,
-    className: className ? `${sx.className} ${className}` : sx.className,
-  }, children);
+  return createElement(
+    as ?? "div",
+    {
+      ...props,
+      ...sx,
+      className: className ? `${sx.className} ${className}` : sx.className,
+    },
+    children,
+  );
 }
 
 const styles = stylex.create({
   base: {
-    minWidth: 0, borderWidth: 1, borderStyle: "solid", borderColor: tokens.border,
-    borderRadius: tokens.radius, backgroundColor: tokens.surface, color: tokens.text,
+    minWidth: 0,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: tokens.border,
+    borderRadius: tokens.radius,
+    backgroundColor: tokens.surface,
+    color: tokens.text,
   },
   raised: { backgroundColor: tokens.raised, boxShadow: tokens.shadow },
 });
